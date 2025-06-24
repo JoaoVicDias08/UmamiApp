@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+:root {
+  --color-primary: #E63946;     /* Vermelho japonês */
+  --color-secondary: #F4EDE4;   /* Bege arroz */
+  --color-accent: #F88379;      /* Coral para hover */
+  --color-dark: #1C1C1C;        /* Preto sumi */
+  --color-neutral: #CFCAC2;     /* Cinza washi */
+
+  --btn-primary: #E63946	;
+  --btn-secondary: #89B46C;
+
+  --font-title: "Fjalla One", sans-serif;
+  --font-emphasis: "Raleway", sans-serif;
+  --font-text: "Roboto Serif", serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
