@@ -1,6 +1,13 @@
 import "../styles/home.css";
-import Carousel from '../components/carrousel'
+import Carousel from "../components/carrousel";
 
+function scrollToSection(e: React.MouseEvent<HTMLAnchorElement>, id: string) {
+  e.preventDefault();
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+}
 
 export default function Home() {
   return (
@@ -14,21 +21,27 @@ export default function Home() {
               no coração da cidade
             </h3>
 
-            
-
             <div className="btn-container">
-              <a href="#cardapio" className="cardapio-btn">
+              <a
+                href="#cardapio"
+                className="cardapio-btn"
+                onClick={(e) => scrollToSection(e, "cardapio")}
+              >
                 Ver cardápio
               </a>
-              <a href="#contato" className="contact-btn">
+              <a
+                href="#reservas"
+                className="contact-btn"
+                onClick={(e) => scrollToSection(e, "reservas")}
+              >
                 Agendar reserva
               </a>
             </div>
           </div>
         </div>
 
-      <div className="somente-desktop">
-        <Carousel />
+        <div className="somente-desktop">
+          <Carousel />
         </div>
       </section>
     </>
