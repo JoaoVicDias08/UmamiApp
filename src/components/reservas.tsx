@@ -139,7 +139,7 @@ const RestaurantReservation: React.FC = () => {
 
   if (isSubmitted) {
     return (
-      <section className="reservation-section">
+      <section className="reservation-section" id="reservas">
         <div className="container">
           <div style={{ maxWidth: "32rem", margin: "0 auto" }}>
             <div className="card success-card">

@@ -15,12 +15,20 @@ export default function Header() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    if (location.pathname !== "/") {
-      e.preventDefault()
-      window.location.href = `/#${id}`
-    }
-    setSidebarOpen(false) 
+  e.preventDefault()
+
+  if (location.pathname !== "/") {
+    window.location.href = `/#/${id}` // se quiser redirecionar de outra página para a main
+    return
   }
+
+  const el = document.getElementById(id)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  setSidebarOpen(false)
+}
 
   const toggleCarrinho = () => setMostrarCarrinho(prev => !prev)
   const fecharCarrinho = () => setMostrarCarrinho(false)
@@ -39,7 +47,7 @@ export default function Header() {
         <nav className="nav-container">
           <a href="#home" className="nav-link" onClick={e => handleAnchorClick(e, "home")}>Home</a>
           <a href="#cardapio" className="nav-link" onClick={e => handleAnchorClick(e, "cardapio")}>Cardápio</a>
-          <a href="#reserva" className="nav-link" onClick={e => handleAnchorClick(e, "reserva")}>Reservas</a>
+          <a href="#reservas" className="nav-link" onClick={e => handleAnchorClick(e, "reserva")}>Reservas</a>
           <button className="btn-cart" aria-label="Carrinho" onClick={toggleCarrinho}>
             <FiShoppingCart size={24} />
             {totalItens > 0 && <span className="cart-badge">{totalItens}</span>}
