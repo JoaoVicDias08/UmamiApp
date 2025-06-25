@@ -1,74 +1,84 @@
 .home-section {
-    width: 100%;
-    height: 100vh;
-    background: var(--color-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    box-sizing: border-box;
-    position: relative;
+  width: 100%;
+  height: 100vh;
+  background: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .home-content {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    width: 80%;
-    gap: 2.5rem;
-    z-index: 2;
-    margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 80%;
+  gap: 2.5rem;
+  z-index: 2;
+  margin-top: 100px;
 }
 
 .home-title {
-    font-size: 7rem;
-    letter-spacing: 6px;
-    color: var(--color-primary);
-    font-weight: 700;
-    font-family: var(--font-title);
-    text-align: start;
-    margin-bottom: 1rem;
-    text-shadow: 0 2px 8px rgba(230,57,70,0.08);
+  font-size: 7rem;
+  letter-spacing: 6px;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-family: var(--font-title);
+  text-align: start;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(230, 57, 70, 0.08);
 }
 
 .home-slogan {
-    font-size: 2rem;
-    color: var(--color-dark);
-    font-family: var(--font-text);
-    font-weight: 500;
-    text-align: start;
-    margin-bottom: 2rem;
+  font-size: 2rem;
+  color: var(--color-dark);
+  font-family: var(--font-text);
+  font-weight: 500;
+  text-align: start;
+  margin-bottom: 2rem;
 }
 
 .btn-container {
-    display: flex;
-    gap: 2rem;
-    justify-content: start;
+  display: flex;
+  gap: 2rem;
+  justify-content: start;
 }
 
-.cardapio-btn, .contact-btn {
-    text-decoration: none;
-    color: #fff;
-    font-family: var(--font-emphasis);
-    font-weight: 600;
-    font-size: 1.2rem;
-    padding: 0.9rem 2.2rem;
-    border-radius: 24px;
-    transition: background 0.3s, color 0.3s, transform 0.2s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-    border: none;
-    outline: none;
-    cursor: pointer;
+.cardapio-btn,
+.contact-btn {
+  text-decoration: none;
+  color: #fff;
+  font-family: var(--font-emphasis);
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 24px;
+  transition: background 0.3s, color 0.3s, transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .cardapio-btn {
-    background-color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-dark);
 }
 
-.contact-btn {
-    background-color: var(--btn-secondary);
-    color: var(--color-dark);
+.cardapio-btn:hover {
+  background-color: #EF6B72;
 }
+.contact-btn {
+  background-color: var(--btn-secondary);
+  color: var(--color-dark);
+}
+
+.contact-btn:hover {
+  background-color: #A3C68A;
+}
+
 
 .btn-cart {
   background: none;
@@ -89,4 +99,40 @@
   font-weight: bold;
   border-radius: 50%;
   padding: 2px 4px;
+}
+
+.somente-desktop {
+  display: block;
+}
+
+@media (max-width: 450px) {
+  .home-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 70%;
+  }
+  .somente-desktop {
+    display: none;
+  }
+  .home-title {
+    font-size: 3rem;
+    text-align: center;
+  }
+  .home-slogan {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin-top: 30vw;
+  }
+  .cardapio-btn,
+  .contact-btn {
+    width: 45;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
 }

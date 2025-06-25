@@ -21,13 +21,15 @@ export default function Home() {
                 Ver cardápio
               </a>
               <a href="#contato" className="contact-btn">
-                Fale conosco
+                Agendar reserva
               </a>
             </div>
           </div>
         </div>
 
+      <div className="somente-desktop">
         <Carousel />
+        </div>
       </section>
     </>
   );

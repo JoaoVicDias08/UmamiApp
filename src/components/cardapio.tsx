@@ -3,6 +3,10 @@ import { produtos } from "../data/menu";
 import type { Produto } from "../data/menu";
 import { useCart } from "../context/cartContext";
 import "../styles/cardapio.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+
 
 const categorias = [
   "Todos",
@@ -18,6 +22,17 @@ export default function Cardapio() {
   const [filtro, setFiltro] = useState("Todos");
   const [exibidos, setExibidos] = useState<Produto[]>(produtos);
   const { addItem } = useCart();
+
+  useEffect(() => {
+  AOS.init({
+    duration: 800, 
+    once: false,
+  });
+}, []);
+
+useEffect(() => {
+  AOS.refresh()
+}, [busca, filtro])
 
   useEffect(() => {
     const filtrados = produtos.filter((p: Produto) => {

@@ -1,6 +1,6 @@
 import Home from '../components/home'
 import Cardapio from '../components/cardapio'
-import Contato from '../components/contato'
+import Contato from '../components/reservas'
 
 export default function MainPage() {
   return (
@@ -13,7 +13,7 @@ export default function MainPage() {
         <Cardapio />
       </section>
 
-      <section id="contato">
+      <section id="reservas">
         <Contato />
       </section>
     </>

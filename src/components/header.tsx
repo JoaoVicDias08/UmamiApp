@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useLocation } from "react-router-dom"
-import { FiShoppingCart } from "react-icons/fi"
+import { FiShoppingCart, FiMenu, FiX } from "react-icons/fi"
 import { useCart } from "../context/cartContext"
 import Cart from '../components/cart'
 import '../styles/index.css'
@@ -12,12 +12,14 @@ export default function Header() {
   const { items } = useCart()
   const totalItens = items.reduce((acc, item) => acc + item.quantidade, 0)
   const [mostrarCarrinho, setMostrarCarrinho] = useState(false)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     if (location.pathname !== "/") {
       e.preventDefault()
       window.location.href = `/#${id}`
     }
+    setSidebarOpen(false) 
   }
 
   const toggleCarrinho = () => setMostrarCarrinho(prev => !prev)
@@ -26,17 +28,38 @@ export default function Header() {
   return (
     <>
       <header className="navbar">
-        <img src={logo} className="logo-img" alt="Umami Logo" />
+        <button
+          className="menu-mobile-btn"
+          aria-label="Abrir menu"
+          onClick={() => setSidebarOpen(true)}
+        >
+          <FiMenu size={28} />
+        </button>
+        <a href="#home"><img src={logo} className="logo-img" alt="Umami Logo"/></a>
         <nav className="nav-container">
           <a href="#home" className="nav-link" onClick={e => handleAnchorClick(e, "home")}>Home</a>
           <a href="#cardapio" className="nav-link" onClick={e => handleAnchorClick(e, "cardapio")}>Cardápio</a>
-          <a href="#contato" className="nav-link" onClick={e => handleAnchorClick(e, "contato")}>Contato</a>
+          <a href="#reserva" className="nav-link" onClick={e => handleAnchorClick(e, "reserva")}>Reservas</a>
           <button className="btn-cart" aria-label="Carrinho" onClick={toggleCarrinho}>
             <FiShoppingCart size={24} />
             {totalItens > 0 && <span className="cart-badge">{totalItens}</span>}
           </button>
         </nav>
+        <button className="btn-cart mobile-cart" aria-label="Carrinho" onClick={toggleCarrinho}>
+          <FiShoppingCart size={24} />
+          {totalItens > 0 && <span className="cart-badge">{totalItens}</span>}
+        </button>
       </header>
+
+      <div className={`sidebar-backdrop${sidebarOpen ? ' open' : ''}`} onClick={() => setSidebarOpen(false)} />
+      <aside className={`sidebar${sidebarOpen ? ' open' : ''}`}>
+        <button className="sidebar-close" aria-label="Fechar menu" onClick={() => setSidebarOpen(false)}>
+          <FiX size={30} />
+        </button>
+        <a href="#home" className="nav-link" onClick={e => handleAnchorClick(e, "home")}>Home</a>
+        <a href="#cardapio" className="nav-link" onClick={e => handleAnchorClick(e, "cardapio")}>Cardápio</a>
+        <a href="#reserva" className="nav-link" onClick={e => handleAnchorClick(e, "reserva")}>Reservas</a>
+      </aside>
 
       {mostrarCarrinho && <Cart onClose={fecharCarrinho} />}
     </>
