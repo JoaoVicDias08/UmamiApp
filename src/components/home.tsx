@@ -34,7 +34,7 @@ export default function Home() {
                 className="contact-btn"
                 onClick={(e) => scrollToSection(e, "reservas")}
               >
-                Agendar reserva
+                Agendar uma reserva
               </a>
             </div>
           </div>
